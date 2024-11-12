@@ -16,7 +16,7 @@ export const TRANSACTION_PAYMENT_METHOD_ICONS = {
 
 export const TRANSACTION_CATEGORY_LABELS = {
   EDUCATION: "Educação",
-  ENTERTAIMENT: "Entretenimento",
+  ENTERTAINMENT: "Entretenimento",
   FOOD: "Alimentação",
   HEALTH: "Saúde",
   HOUSING: "Moradia",
