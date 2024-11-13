@@ -37,7 +37,7 @@ const SubscriptionPage = async () => {
               <div className="flex items-center gap-2">
                 <CheckIcon className="text-primary" />
                 <p>
-                  Apenas 10 transações por mês ({currentMonthTransactions}/10)
+                  Apenas 20 transações por mês ({currentMonthTransactions}/20)
                 </p>
               </div>
               <div className="flex items-center gap-2">
@@ -59,7 +59,7 @@ const SubscriptionPage = async () => {
               </h2>
               <div className="flex items-center justify-center gap-3">
                 <span className="text-4xl">R$</span>
-                <span className="text-6xl font-semibold">19</span>
+                <span className="text-6xl font-semibold">59,90</span>
                 <div className="text-2xl text-muted-foreground">/mês</div>
               </div>
             </CardHeader>
