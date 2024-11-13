@@ -39,12 +39,15 @@ export const transactionColumns: ColumnDef<Transaction>[] = [
     accessorKey: "date",
     header: "Data",
     cell: ({ row: { original: transaction } }) =>
-      new Date(transaction.date).toLocaleDateString("pt-BR", {
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
-      }),
+      transaction.date
+        ? new Date(transaction.date).toLocaleDateString("pt-BR", {
+            day: "2-digit",
+            month: "long",
+            year: "numeric",
+          })
+        : "Data não disponível", // Valor alternativo caso a data não exista
   },
+
   {
     accessorKey: "amount",
     header: "Valor",
