@@ -35,7 +35,9 @@ const SummaryCard = ({
           }).format(amount)}
         </p>
 
-        {size === "large" && <AddTransactionButton />}
+        {size === "large" && (
+          <AddTransactionButton userCanAddTransaction={false} />
+        )}
       </CardContent>
     </Card>
   );
