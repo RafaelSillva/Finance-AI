@@ -7,6 +7,7 @@ interface SummaryCardProps {
   title: string;
   amount: number;
   size?: "small" | "large";
+  userCanAddTransaction?: boolean;
 }
 
 const SummaryCard = ({
@@ -14,13 +15,16 @@ const SummaryCard = ({
   title,
   amount,
   size = "small",
+  userCanAddTransaction,
 }: SummaryCardProps) => {
   return (
     <Card>
       <CardHeader className="flex-row items-center gap-4">
         {icon}
         <p
-          className={`${size === "small" ? "text-muted-foreground" : "text-white opacity-70"}`}
+          className={`${
+            size === "small" ? "text-muted-foreground" : "text-white opacity-70"
+          }`}
         >
           {title}
         </p>
@@ -29,14 +33,14 @@ const SummaryCard = ({
         <p
           className={`font-bold ${size === "small" ? "text-2xl" : "text-4xl"}`}
         >
-          {Intl.NumberFormat("pt-BR", {
+          {new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
           }).format(amount)}
         </p>
 
-        {size === "large" && (
-          <AddTransactionButton userCanAddTransaction={false} />
+        {size === "large" && userCanAddTransaction && (
+          <AddTransactionButton userCanAddTransaction={userCanAddTransaction} />
         )}
       </CardContent>
     </Card>

@@ -47,7 +47,6 @@ export const transactionColumns: ColumnDef<Transaction>[] = [
           })
         : "Data não disponível", // Valor alternativo caso a data não exista
   },
-
   {
     accessorKey: "amount",
     header: "Valor",

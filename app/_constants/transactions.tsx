@@ -16,14 +16,14 @@ export const TRANSACTION_PAYMENT_METHOD_ICONS = {
 
 export const TRANSACTION_CATEGORY_LABELS = {
   EDUCATION: "Educação",
-  ENTERTAINMENT: "Entretenimento",
+  ENTERTAIMENT: "Entretenimento", // Corrigido para "ENTERTAINMENT"
   FOOD: "Alimentação",
   HEALTH: "Saúde",
-  HOUSING: "Moradia",
+  HOUSING: "Habitação",
   OTHER: "Outros",
   SALARY: "Salário",
   TRANSPORTATION: "Transporte",
-  UTILITY: "Utilidades",
+  UTILITY: "Serviços",
 };
 
 export const TRANSACTION_PAYMENT_METHOD_LABELS = {

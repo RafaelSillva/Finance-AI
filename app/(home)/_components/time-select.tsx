@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from "@/app/_components/ui/select";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const MONTH_OPTIONS = [
   { value: "01", label: "January" },
@@ -27,15 +28,19 @@ const MONTH_OPTIONS = [
 const TimeSelect = () => {
   const { push } = useRouter();
   const searchParams = useSearchParams();
-  const month = searchParams.get("month");
+  const [month, setMonth] = useState(searchParams.get("month") || "");
+
   const handleMonthChange = (month: string) => {
+    setMonth(month);
     push(`/?month=${month}`);
   };
+
+  useEffect(() => {
+    setMonth(searchParams.get("month") || "");
+  }, [searchParams]);
+
   return (
-    <Select
-      onValueChange={(value) => handleMonthChange(value)}
-      defaultValue={month ?? ""}
-    >
+    <Select onValueChange={(value) => handleMonthChange(value)} value={month}>
       <SelectTrigger className="w-[150px] rounded-full">
         <SelectValue placeholder="Mês" />
       </SelectTrigger>
