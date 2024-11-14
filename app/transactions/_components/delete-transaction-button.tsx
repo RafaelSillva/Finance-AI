@@ -11,23 +11,28 @@ import {
 } from "@/app/_components/ui/alert-dialog";
 import { Button } from "@/app/_components/ui/button";
 import { TrashIcon } from "lucide-react";
+import { deleteTransaction } from "../_actions/delete-transaction";
+import { toast } from "sonner";
 
 interface DeleteTransactionButtonProps {
   transactionId: string;
-  onDelete: (transactionId: string) => void; // Função para excluir a transação
 }
 
 const DeleteTransactionButton = ({
   transactionId,
-  onDelete,
 }: DeleteTransactionButtonProps) => {
-  const handleDelete = () => {
-    onDelete(transactionId); // Aqui você usa a transactionId para excluir
+  const handleConfirmDeleteClick = async () => {
+    try {
+      await deleteTransaction({ transactionId });
+      toast.success("Transação deletada com sucesso!");
+    } catch (error) {
+      console.error(error);
+      toast.error("Ocorreu um erro ao deletar a transação.");
+    }
   };
-
   return (
     <AlertDialog>
-      <AlertDialogTrigger>
+      <AlertDialogTrigger asChild>
         <Button variant="ghost" size="icon" className="text-muted-foreground">
           <TrashIcon />
         </Button>
@@ -35,7 +40,7 @@ const DeleteTransactionButton = ({
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
-            Deseja realmente deletar essa transação?
+            Você deseja realmente deletar essa transação?
           </AlertDialogTitle>
           <AlertDialogDescription>
             Essa ação não pode ser desfeita.
@@ -43,7 +48,7 @@ const DeleteTransactionButton = ({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction onClick={handleDelete}>
+          <AlertDialogAction onClick={handleConfirmDeleteClick}>
             Continuar
           </AlertDialogAction>
         </AlertDialogFooter>

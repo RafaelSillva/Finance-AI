@@ -38,13 +38,11 @@ export const transactionColumns: ColumnDef<Transaction>[] = [
     accessorKey: "date",
     header: "Data",
     cell: ({ row: { original: transaction } }) =>
-      transaction.date
-        ? new Date(transaction.date).toLocaleDateString("pt-BR", {
-            day: "2-digit",
-            month: "long",
-            year: "numeric",
-          })
-        : "Data não disponível", // Valor alternativo caso a data não exista
+      new Date(transaction.date).toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }),
   },
   {
     accessorKey: "amount",
@@ -59,23 +57,10 @@ export const transactionColumns: ColumnDef<Transaction>[] = [
     accessorKey: "actions",
     header: "Ações",
     cell: ({ row: { original: transaction } }) => {
-      const handleDeleteTransaction = async (transactionId: string) => {
-        try {
-          // Implemente a lógica de exclusão aqui (por exemplo, chamando uma API para excluir a transação)
-          console.log(`Transação com ID ${transactionId} deletada.`);
-          // Exemplo: await api.deleteTransaction(transactionId);
-        } catch (error) {
-          console.error("Erro ao excluir transação:", error);
-        }
-      };
-
       return (
         <div className="space-x-1">
           <EditTransactionButton transaction={transaction} />
-          <DeleteTransactionButton
-            transactionId={transaction.id}
-            onDelete={handleDeleteTransaction}
-          />
+          <DeleteTransactionButton transactionId={transaction.id} />
         </div>
       );
     },
