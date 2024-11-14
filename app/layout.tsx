@@ -20,6 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/piggy-bank-solid.svg" />
+      </head>
       <body className={`${mulish.className} dark antialiased`}>
         <ClerkProvider
           appearance={{
