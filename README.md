@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Finance AI
+Finance AI é um sistema de controle financeiro voltado para o dia a dia de empresas e freelancers. Com funcionalidades de monitoramento financeiro, visualizações de gráficos e integração com serviços externos, o Finance AI oferece uma experiência fácil de usar e poderosa para pequenos negócios.
 
-## Getting Started
+## Funcionalidades:
+Gerenciamento de finanças com visualizações intuitivas de despesas e receitas
+Suporte para transações ilimitadas e categorização de gastos
+Integração com o Stripe para pagamento de assinaturas
+Autenticação e gestão de usuários com Clerk
+Respostas automatizadas e suporte via API do ChatGPT
+Painéis gráficos interativos para análise de transações e despesas.
 
-First, run the development server:
+## Fotos:
+<image src="https://github.com/RafaelSillva/Finance-AI/blob/main/public/Captura%20de%20tela%202024-11-13%20230434.png"/>
+<image src="https://github.com/RafaelSillva/Finance-AI/blob/main/public/Captura%20de%20tela%202024-11-13%20230313.png"/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tecnologias Utilizadas:
+Next.js – Framework principal do projeto, utilizado para renderização SSR e construção de API.
+React Hooks – Para manipulação de estado e lógica de componentes.
+TypeScript – Tipagem estática para maior segurança e robustez no código.
+Tailwind CSS – Estilização rápida e customizável com classes utilitárias.
+shadcn – Biblioteca de componentes estilizados.
+Prisma – ORM para modelagem e manipulação de banco de dados.
+NeonDB – Banco de dados escalável para armazenamento das transações.
+Docker – Para containerização e fácil deploy do projeto.
+Stripe – Integração para pagamentos de assinatura.
+Clerk – Gerenciamento de autenticação e sessão de usuários.
+API do ChatGPT – Para interações automatizadas e suporte inteligente.
+Chart.js – Criação de gráficos de análise financeira.
+ESLint & Prettier – Ferramentas para padronização e formatação de código.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pré-requisitos:
+Certifique-se de ter as seguintes ferramentas instaladas em seu ambiente:
+Node.js
+Docker
+NeonDB (ou qualquer banco de dados compatível).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Instalação:
+Clone este repositório:
+bash
+Copiar código
+git clone https://github.com/RafaelSillva/Finance-AI.git
+cd finance-ai.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Instale as dependências:
+bash
+Copiar código
+npm install
 
-## Learn More
+## Configure o Prisma e o banco de dados:
+Edite o arquivo .env com a URL de conexão do NeonDB.
 
-To learn more about Next.js, take a look at the following resources:
+## Execute a migração do Prisma:
+bash
+Copiar código
+npx prisma migrate dev.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Configure as variáveis de ambiente:
+STRIPE_API_KEY: Chave da API do Stripe para transações de pagamento.
+CLERK_API_KEY: Chave de autenticação do Clerk para gerenciamento de usuários.
+OPENAI_API_KEY: Chave da API do ChatGPT para interação de suporte.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Inicie o ambiente de desenvolvimento:
+bash
+Copiar código
+npm run dev.
 
-## Deploy on Vercel
+## Uso com Docker
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Para executar o projeto com Docker:
+bash
+Copiar código
+docker-compose up -d
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Scripts Disponíveis:
+npm run dev - Inicia o ambiente de desenvolvimento
+npm run build - Compila o projeto para produção
+npm run lint - Analisa o código com ESLint
+npm run format - Formata o código com Prettier
+
+## Contribuição:
+Contribuições são bem-vindas! Siga as etapas abaixo:
+Faça um fork do projeto.
+Crie uma nova branch: git checkout -b minha-nova-feature.
+Faça suas alterações e confirme os commits: git commit -m 'Minha nova feature'.
+Envie para o branch original: git push origin minha-nova-feature.
+Crie um pull request.
+
+## Licença
+Este projeto é licenciado sob a Licença MIT. Consulte o arquivo LICENSE para obter mais detalhes.
+Esse README oferece uma visão geral do projeto e as instruções necessárias para configuração e uso. Adapte as URLs e comandos de acordo com seu repositório e ambiente de desenvolvimento.
